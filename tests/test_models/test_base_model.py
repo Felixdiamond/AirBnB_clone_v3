@@ -79,26 +79,26 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(inst.number, 89)
 
     def test_datetime_attributes(self):
-    """Test that two BaseModel instances have different datetime objects
-    and that upon creation have identical updated_at and created_at
-    value."""
-    tic = datetime.now()
-    inst1 = BaseModel()
-    created_at_1 = inst1.created_at
-    toc = datetime.now()
-    self.assertGreater(created_at_1, tic)
-    self.assertLess(created_at_1, toc)
-    time.sleep(0.1)  # increase sleep time
-    tic = datetime.now()
-    inst2 = BaseModel()
-    created_at_2 = inst2.created_at
-    toc = datetime.now()
-    self.assertGreater(created_at_2, tic)
-    self.assertLess(created_at_2, toc)
-    self.assertEqual(inst1.created_at, inst1.updated_at)
-    self.assertEqual(inst2.created_at, inst2.updated_at)
-    self.assertNotEqual(inst1.created_at, inst2.created_at)
-    self.assertNotEqual(inst1.updated_at, inst2.updated_at)
+        """Test that two BaseModel instances have different datetime objects
+        and that upon creation have identical updated_at and created_at
+        value."""
+        tic = datetime.now()
+        inst1 = BaseModel()
+        created_at_1 = inst1.created_at
+        toc = datetime.now()
+        self.assertGreater(created_at_1, tic)
+        self.assertLess(created_at_1, toc)
+        time.sleep(0.1)  # increase sleep time
+        tic = datetime.now()
+        inst2 = BaseModel()
+        created_at_2 = inst2.created_at
+        toc = datetime.now()
+        self.assertGreater(created_at_2, tic)
+        self.assertLess(created_at_2, toc)
+        self.assertEqual(inst1.created_at, inst1.updated_at)
+        self.assertEqual(inst2.created_at, inst2.updated_at)
+        self.assertNotEqual(inst1.created_at, inst2.created_at)
+        self.assertNotEqual(inst1.updated_at, inst2.updated_at)
 
     def test_uuid(self):
         """Test that id is a valid uuid"""
