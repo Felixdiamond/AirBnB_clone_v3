@@ -87,8 +87,8 @@ class TestBaseModel(unittest.TestCase):
         created_at_1 = inst1.created_at
         toc = datetime.now()
         self.assertGreater(created_at_1, tic)
-        self.assertLessEqual(created_at_1, toc)
-        time.sleep(0.5)  # increase sleep time
+        self.assertLess(created_at_1, toc)
+        time.sleep(0.1)  # increase sleep time
         tic = datetime.now()
         inst2 = BaseModel()
         created_at_2 = inst2.created_at
